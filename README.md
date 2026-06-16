@@ -130,7 +130,7 @@ npm install
 #### Start the development environment
 
 ```bash
-npm run dev
+VITE_API_BASE_URL=http://localhost:8000 npm run dev
 ```
 
 Open:
@@ -152,18 +152,21 @@ Build backend image:
 
 ```bash
 cd backend/app
-
-docker build -t chuck-jokes-backend .
+docker build -t my-fastapi-app .
 ```
 
 Run backend container:
 
 ```bash
 docker run \
+  --name my-fastapi-app \
   -p 8000:8000 \
-  [-e YOUR_ENV_VARS] \
-  chuck-jokes-backend
+  -e PROFANITY_API_KEY="$PROFANITY_API_KEY" \
+  my-fastapi-app
 ```
+
+> [!NOTE]
+> If you do not set PROFANITY_API_KEY, the application will not apply the profanity filter but still works.
 
 #### Frontend
 
@@ -172,13 +175,20 @@ Build frontend image:
 ```bash
 cd frontend/app
 
-docker build -t chuck-jokes-frontend .
+docker build \
+  --build-arg VITE_API_BASE_URL=http://localhost:8000 \
+  -t my-react-app \
+  frontend/app
 ```
 
+The environment variable `VITE_API_BASE_URL` must be set in other to let the frontend where is the backend.
 Run frontend container:
 
 ```bash
-docker run -p 5173:5173 chuck-jokes-frontend
+docker run \
+  --name my-react-app \
+  -p 80:80 \
+  my-react-app
 ```
 
 #### Full-stack application
@@ -186,11 +196,21 @@ docker run -p 5173:5173 chuck-jokes-frontend
 Your application should be locally available at:
 
 ```text
-Frontend: http://localhost:5173
+Frontend: http://localhost
 
 Backend: http://localhost:8000
 
 Swagger: http://localhost:8000/docs
+```
+
+Cleanup:
+
+```bash
+docker stop my-fastapi-app my-react-app
+
+docker rm my-fastapi-app my-react-app
+
+docker rmi my-fastapi-app my-react-app
 ```
 
 
@@ -215,6 +235,19 @@ Delete volumes:
 
 ```bash
 docker compose down -v
+```
+
+Full-stack Application:
+
+```text
+Frontend
+http://localhost:3000
+
+Backend
+http://localhost:8000
+
+Swagger
+http://localhost:8000/docs
 ```
 
 ---

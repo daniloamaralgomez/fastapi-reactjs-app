@@ -1,23 +1,34 @@
 services:
     backend:
+        container_name: my-fastapi-app
+
         build:
             context: ./backend/app
             dockerfile: Dockerfile
+
         ports:
             - "8000:8000"
+
         environment:
-            # These variables are pulled safely out of your local .env file
-            - DB_USER=${DB_USER}
-            - DB_PASSWORD=${DB_PASSWORD}
-            - DATABASE_URL=${DATABASE_URL}
+            REPOSITORY_TYPE: memory
+            PROFANITY_API_KEY: ${PROFANITY_API_KEY}
+
         restart: unless-stopped
 
     frontend:
+        container_name: my-react-app
+
         build:
             context: ./frontend/app
             dockerfile: Dockerfile
+
+            args:
+                VITE_API_BASE_URL: http://localhost:8000
+
         ports:
             - "3000:80"
-        restart: unless-stopped
+
         depends_on:
             - backend
+
+        restart: unless-stopped
