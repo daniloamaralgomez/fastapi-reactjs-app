@@ -1,0 +1,23 @@
+# Git
+.git
+.gitignore
+
+# Python / UV Caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.uv/
+
+# Local environments
+.venv/
+env/
+venv/
+
+# Docker & local secrets
+Dockerfile
+.dockerignore
+.env

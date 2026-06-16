@@ -1,0 +1,23 @@
+services:
+    backend:
+        build:
+            context: ./backend/app
+            dockerfile: Dockerfile
+        ports:
+            - "8000:8000"
+        environment:
+            # These variables are pulled safely out of your local .env file
+            - DB_USER=${DB_USER}
+            - DB_PASSWORD=${DB_PASSWORD}
+            - DATABASE_URL=${DATABASE_URL}
+        restart: unless-stopped
+
+    frontend:
+        build:
+            context: ./frontend/app
+            dockerfile: Dockerfile
+        ports:
+            - "3000:80"
+        restart: unless-stopped
+        depends_on:
+            - backend

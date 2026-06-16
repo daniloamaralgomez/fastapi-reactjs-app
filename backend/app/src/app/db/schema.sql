@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS jokes (
+    id TEXT PRIMARY KEY,
+    value TEXT NOT NULL,
+    icon_url TEXT NOT NULL,
+    safe BOOLEAN,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
