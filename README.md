@@ -219,6 +219,14 @@ docker compose down -v
 
 ---
 
+## AWS Infrastructure Deployment
+
+To ensure a separation of concerns, the comprehensive instructions for provisioning and deploying this application's infrastructure to AWS are maintained in a dedicated reference guide.
+
+Please proceed to the [AWS Deployment & Architecture Reference Manual](./infrastructure/README.md) for detailed prerequisites, configuration guidelines, and step-by-step deployment commands.
+
+---
+
 ## Backend API Endpoints
 
 Get a random joke:

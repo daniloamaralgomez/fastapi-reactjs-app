@@ -47,7 +47,7 @@ module "frontend_service" {
   vpc_id                = module.vpc.vpc_id
   subnets               = module.vpc.public_subnet_ids
   container_port        = 80 # It must match the Nginx port inside the container
-  image_url             = module.ecr.repository_urls["staging-frontend"]
+  image_url             = module.ecr.repository_urls["prod-frontend"]
   target_group_arn      = module.alb.frontend_tg_arn
   alb_security_group_id = module.alb.alb_sg_id
 }

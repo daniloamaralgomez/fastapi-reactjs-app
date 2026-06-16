@@ -8,7 +8,7 @@ output "ecr_repository_urls" {
 }
 
 output "ecs_cluster_name" {
-  value = aws_ecs_cluster.staging_cluster.name
+  value = aws_ecs_cluster.prod_cluster.name
 }
 
 output "application_url" {

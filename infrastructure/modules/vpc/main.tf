@@ -1,9 +1,3 @@
-variable "environment" { type = string }
-variable "vpc_cidr" { type = string }
-variable "public_subnets" { type = list(string) }
-variable "private_subnets" { type = list(string) }
-variable "availability_zones" { type = list(string) }
-
 resource "aws_vpc" "main" {
   cidr_block           = var.vpc_cidr
   enable_dns_hostnames = true
@@ -48,9 +42,5 @@ resource "aws_route_table_association" "public" {
   route_table_id = aws_route_table.public.id
 }
 
-# Note: In production, add a NAT Gateway here linked to private subnets 
+# Note: In production, add a NAT Gateway here linked to private subnets
 # so containers can pull public images/updates safely.
-
-output "vpc_id" { value = aws_vpc.main.id }
-output "private_subnet_ids" { value = aws_subnet.private[*].id }
-output "public_subnet_ids" { value = aws_subnet.public[*].id }

@@ -22,8 +22,8 @@ sequenceDiagram
     FE-->>ALB: Return Index.html + Bundle Assets
     ALB-->>User: Deliver React App to Browser
 
-    Note over User: React App executes relative API call (/api/v1/users)
-    User->>ALB: HTTP POST/GET Request ([domain.com/api/v1/users](https://domain.com/api/v1/users))
+    Note over User: React App executes relative API call (/api/jokes)
+    User->>ALB: HTTP POST/GET Request ([domain.com/api/jokes](https://domain.com/api/jokes))
     Note over ALB: Route matched: Path /api/*
     ALB->>BE: Forward to Target Group (Port 8000)
     BE-->>ALB: Return FastAPI JSON payload

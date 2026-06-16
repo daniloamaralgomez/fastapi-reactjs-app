@@ -1,11 +1,3 @@
-variable "environment" { type = string }
-variable "service_name" { type = string }
-variable "vpc_id" { type = string }
-variable "subnets" { type = list(string) }
-variable "container_port" { type = number }
-variable "cluster_id" { type = string }
-variable "image_url" { type = string }
-
 resource "aws_ecs_task_definition" "app" {
   family                   = "${var.environment}-${var.service_name}"
   network_mode             = "awsvpc"
@@ -71,7 +63,7 @@ resource "aws_iam_role" "ecs_execution" {
   name = "${var.environment}-${var.service_name}-exec-role"
 
   assume_role_policy = jsonencode({
-    Version = "2026-06-18"
+    Version = "2012-10-17"
     Statement = [{
       Action    = "sts:AssumeRole"
       Effect    = "Allow"
