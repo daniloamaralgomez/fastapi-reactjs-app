@@ -2,9 +2,41 @@
     <img src="./img/chuck_approved.png" alt="Chuck Approved" width="200" style="background-color: transparent;" />
 </p>
 
-# Chuck Norris Full Stack Application
+# Chuck Hub | Full-Stack Application
 
-The application fetches random Chuck Norris jokes from the [API](https://api.chucknorris.io/), applies a profanity filter (NLP/AI driven), and allows users to save their favorite jokes.
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.116-009688?logo=fastapi)
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?logo=postgresql)
+![Terraform](https://img.shields.io/badge/Terraform-AWS-7B42BC?logo=terraform)
+![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?logo=docker)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-success?logo=googlechrome)](https://fastapi-reactjs-app.onrender.com)
+
+> A production-oriented full-stack application built around a simple idea: retrieving and managing Chuck Norris jokes while showcasing modern software engineering practices and cloud-native architecture.
+
+Although the domain is intentionally playful, this repository is a comprehensive engineering project that demonstrates how to design, build, deploy, and operate a complete full-stack system using industry-standard technologies.
+
+The application retrieves random jokes from the public [Chuck Norris API](https://api.chucknorris.io/), applies an AI-powered profanity filter, and allows users to save their favorite jokes.
+
+#### Technology Stack
+
+* **Frontend**: React, Vite, Tailwind CSS
+* **Backend**: Python, FastAPI, Pydantic, SQLAlchemy
+* **Database**: PostgreSQL
+* **Infrastructure & Cloud**: Docker, Docker Compose, Terraform, AWS
+
+This project demonstrates:
+
+* Modern frontend architecture with React and Vite
+* REST API development with FastAPI
+* Data validation using Pydantic
+* Database persistence with PostgreSQL and SQLAlchemy
+* Containerized deployments with Docker
+* Infrastructure as Code (IaC) with Terraform
+* End-to-end AWS infrastructure provisioning
+* Clean separation of concerns across all application layers
+
+#### **[Live Demo](https://fastapi-reactjs-app.onrender.com)**
 
 ---
 
