@@ -2,7 +2,7 @@
     <img src="./img/chuck_approved.png" alt="Chuck Approved" width="200" style="background-color: transparent;" />
 </p>
 
-# Chuck Hub | Full-Stack Application
+# Norris Hub | Full-Stack Application
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.116-009688?logo=fastapi)
